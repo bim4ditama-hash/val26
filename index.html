@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! ❤️</title>
+    <style>
+        /* --- SETUP DASAR --- */
+        body {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; background-color: #fff5f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; overflow: hidden;
+        }
+
+        .container { text-align: center; }
+
+        h1 { color: #d63384; font-size: 1.8rem; margin-bottom: 5px; opacity: 0; animation: fadeIn 2s forwards; }
+        p { color: #999; font-size: 1rem; margin-bottom: 30px; opacity: 0; animation: fadeIn 2s 1s forwards; }
+
+        /* --- THE ROSE ENGINE --- */
+        .rose {
+            position: relative; width: 100px; height: 100px;
+            margin: 0 auto;
+        }
+
+        .petal {
+            position: absolute; left: 50%; top: 50%;
+            background: linear-gradient(to bottom, #ff4d6d, #c70039);
+            border-radius: 50% 50% 10% 10% / 80% 80% 20% 20%;
+            transform-origin: bottom center;
+            opacity: 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Layering Kelopak (Satu per satu mekar) */
+        /* Kelopak Luar */
+        .p1 { width: 80px; height: 100px; margin-left: -40px; margin-top: -100px; animation: bloom 2s 1.5s forwards; transform: rotate(0deg); }
+        .p2 { width: 80px; height: 100px; margin-left: -40px; margin-top: -100px; animation: bloomRight 2s 1.7s forwards; }
+        .p3 { width: 80px; height: 100px; margin-left: -40px; margin-top: -100px; animation: bloomLeft 2s 1.9s forwards; }
+        
+        /* Kelopak Dalam */
+        .p4 { width: 60px; height: 80px; margin-left: -30px; margin-top: -80px; animation: bloom 2s 2.2s forwards; z-index: 2; background: #e63946; }
+        .p5 { width: 40px; height: 60px; margin-left: -20px; margin-top: -60px; animation: bloom 2.5s 2.5s forwards; z-index: 3; background: #ff4d6d; }
+
+        /* Batang */
+        .stem {
+            width: 6px; height: 150px; background: #2d5a27;
+            margin: -5px auto 0; border-radius: 4px;
+            transform-origin: top center; transform: scaleY(0);
+            animation: growStem 1.5s forwards;
+        }
+
+        /* Daun */
+        .leaf {
+            width: 40px; height: 25px; background: #4a9c42;
+            border-radius: 0 50% 0 50%; position: absolute;
+            opacity: 0; animation: fadeIn 1s 3s forwards;
+        }
+        .l1 { left: -35px; top: 40px; transform: rotate(-20deg); }
+        .l2 { right: -35px; top: 70px; transform: rotate(200deg); }
+
+        /* --- ANIMASI --- */
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes growStem { to { transform: scaleY(1); } }
+        @keyframes bloom { 
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes bloomRight {
+            0% { transform: rotate(0) scale(0); opacity: 0; }
+            100% { transform: rotate(30deg) scale(1); opacity: 1; }
+        }
+        @keyframes bloomLeft {
+            0% { transform: rotate(0) scale(0); opacity: 0; }
+            100% { transform: rotate(-30deg) scale(1); opacity: 1; }
+        }
+
+        .final-message {
+            margin-top: 40px; font-style: italic; color: #d63384;
+            opacity: 0; animation: fadeIn 2s 4s forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>For You, Dear ❤️</h1>
+        <p>A little bloom from Indonesia to Austria.</p>
+
+        <div class="rose">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            
+            <div class="stem">
+                <div class="leaf l1"></div>
+                <div class="leaf l2"></div>
+            </div>
+        </div>
+
+        <div class="final-message">
+            "Because there is no space, I coded this permanent rose just for you. It blooms every time you open this link. Hope u like it dear."
+        </div>
+    </div>
+
+</body>
+</html>
